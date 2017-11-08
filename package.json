@@ -1,6 +1,6 @@
 {
-  "name": "react-native-smart-pull-to-refresh-listview",
-  "version": "1.6.10",
+  "name": "react-native-uking-pull-to-refresh",
+  "version": "0.0.1",
   "description": "A smart pull-down-refresh and pull-up-loadmore react-native listview, for ios, written in pure JS, for android, written in JS and Java.",
   "main": "PullToRefreshListView",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/react-native-component/react-native-smart-pull-to-refresh-listview.git"
+    "url": "git+https://github.com/An-uking/react-native-uking-pull-to-refresh.git"
   },
   "keywords": [
     "react-native",
@@ -21,13 +21,13 @@
     "listview",
     "component"
   ],
-  "author": "HISAME SHIZUMARU",
+  "author": "uking",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/react-native-component/react-native-smart-pull-to-refresh-listview/issues"
+    "url": "https://github.com/An-uking/react-native-uking-pull-to-refresh.git/issues"
   },
-  "homepage": "https://github.com/react-native-component/react-native-smart-pull-to-refresh-listview#readme",
+  "homepage": "https://github.com/An-uking/react-native-uking-pull-to-refresh.git#readme",
   "dependencies": {
-    "react-native-smart-timer-enhance": "^1.0.2"
+    "react-native-smart-timer-enhance": "^0.0.1"
   }
 }
