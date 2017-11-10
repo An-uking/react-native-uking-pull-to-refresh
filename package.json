@@ -1,6 +1,6 @@
 {
   "name": "react-native-uking-pull-to-refresh",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A smart pull-down-refresh and pull-up-loadmore react-native listview, for ios, written in pure JS, for android, written in JS and Java.",
   "main": "PullToRefreshListView",
   "scripts": {
