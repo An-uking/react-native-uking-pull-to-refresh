@@ -28,6 +28,6 @@
   },
   "homepage": "https://github.com/An-uking/react-native-uking-pull-to-refresh.git#readme",
   "dependencies": {
-    "react-native-smart-timer-enhance": "^0.0.1"
+    "react-native-smart-timer-enhance": "^1.0.3"
   }
 }
