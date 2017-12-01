@@ -1089,21 +1089,36 @@ class PullToRefreshListView extends Component {
     }
 
     _renderHeader = () => {
-        return (
-            <RefreshView ref={ component => this._header = component }
-                         style={[styles.header, styles.shrink,]}
-                         viewType={refreshViewType.header}
-                         renderRefreshContent={this.props.renderHeader}/>
-        )
+        if (this.props.ListHeaderComponent) {
+            const element = React.isValidElement(this.props.ListHeaderComponent)
+                ? this.props.ListHeaderComponent
+                : <this.props.ListHeaderComponent />;
+            return (
+                <View key="$$Header">
+                    <RefreshView ref={component => this._header = component}
+                        style={[styles.header, styles.shrink,]}
+                        viewType={refreshViewType.header}
+                        renderRefreshContent={this.props.renderHeader} />
+                    {element}
+                </View>
+            );
+        } else {
+            return (
+                <RefreshView ref={component => this._header = component}
+                    style={[styles.header, styles.shrink,]}
+                    viewType={refreshViewType.header}
+                    renderRefreshContent={this.props.renderHeader} />
+            )
+        }
     }
 
     _renderFooter = () => {
         return (
             <RefreshView ref={ component => this._footer = component }
-                         onLayout={this._onFooterLayout}
-                         style={[styles.footer, this.props.autoLoadMore ? null : styles.shrink, { opacity: 0, }, ]}
-                         viewType={refreshViewType.footer}
-                         renderRefreshContent={this.props.renderFooter}/>
+                onLayout={this._onFooterLayout}
+                style={[styles.footer, this.props.autoLoadMore ? null : styles.shrink, { opacity: 0, }, ]}
+                viewType={refreshViewType.footer}
+                renderRefreshContent={this.props.renderFooter}/>
         )
     }
 
@@ -1125,7 +1140,7 @@ class PullToRefreshListView extends Component {
                 return (
                     <ListItem ref={ component => this._listSectionRefs[sectionID] = component }
                         {...listSectionProps}
-                              renderChildren={renderSectionHeader.bind(this, sectionData, sectionID)}/>
+                        renderChildren={renderSectionHeader.bind(this, sectionData, sectionID)}/>
                 )
             }
             else {
@@ -1151,7 +1166,7 @@ class PullToRefreshListView extends Component {
                 return (
                     <ListItem ref={ component => this._listItemRefs[sectionID + keySeparator + rowID] = {sectionID, component,} }
                         {...listItemProps}
-                              renderChildren={renderRow.bind(this, rowData, sectionID, rowID)}/>
+                        renderChildren={renderRow.bind(this, rowData, sectionID, rowID)}/>
                 )
             }
             else {

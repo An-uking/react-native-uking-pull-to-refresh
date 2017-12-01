@@ -909,21 +909,36 @@ class PullToRefreshListView extends Component {
     }
 
     _renderHeader = () => {
-        return (
-            <RefreshView ref={ component => this._header = component }
-                         style={[styles.header, styles.shrink,]}
-                         viewType={refreshViewType.header}
-                         renderRefreshContent={this.props.renderHeader}/>
-        )
+        if (this.props.ListHeaderComponent) {
+            const element = React.isValidElement(this.props.ListHeaderComponent)
+                ? this.props.ListHeaderComponent
+                : <this.props.ListHeaderComponent />;
+            return (
+                <View key="$$Header">
+                    <RefreshView ref={component => this._header = component}
+                        style={[styles.header, styles.shrink,]}
+                        viewType={refreshViewType.header}
+                        renderRefreshContent={this.props.renderHeader} />
+                    {element}
+                </View>
+            );
+        } else {
+            return (
+                <RefreshView ref={component => this._header = component}
+                    style={[styles.header, styles.shrink,]}
+                    viewType={refreshViewType.header}
+                    renderRefreshContent={this.props.renderHeader} />
+            )
+        }
     }
 
     _renderFooter = () => {
         return (
             <RefreshView ref={ component => this._footer = component }
-                         onLayout={this._onFooterLayout}
-                         style={[styles.footer, this.props.autoLoadMore ? null : styles.shrink, { opacity: 0, }, ]}
-                         viewType={refreshViewType.footer}
-                         renderRefreshContent={this.props.renderFooter}/>
+                    onLayout={this._onFooterLayout}
+                    style={[styles.footer, this.props.autoLoadMore ? null : styles.shrink, { opacity: 0, }, ]}
+                    viewType={refreshViewType.footer}
+                    renderRefreshContent={this.props.renderFooter}/>
         )
     }
 
